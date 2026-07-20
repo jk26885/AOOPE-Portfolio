@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advanced OOP E-Portfolio — Week 10: TDD & Unit Testing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/styles.css">
+<link rel="stylesheet" href="../assets/css/dark.css">
+<script src="../assets/js/app.js" defer></script>
+<script src="../assets/js/search.js" defer></script>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="../index.html">Advanced OOP Portfolio</a>
+  <div class="nav-search">
+    <input id="nav-search-input" type="text" placeholder="Search weeks..." autocomplete="off">
+  </div>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li data-keywords="bio profile author"><a href="../about.html">About</a></li>
+    <li data-keywords="learning outcomes overview independent working"><a href="week01.html">Week 1: Introduction</a></li>
+    <li data-keywords="solid srp ocp lsp isp dip shopping"><a href="week02-solid.html">Week 2: SOLID</a></li>
+    <li data-keywords="factory method abstract factory creational ai provider"><a href="week03-factory-method.html">Week 3: CREATIONAL PATTERNS</a></li>
+    <li data-keywords="decorator pattern logging authentication rate limiting structural"><a href="week04-decorator.html">Week 4: Structural Patterns</a></li>
+    <li data-keywords="strategy pattern pricing engine behavioural"><a href="week05-strategy.html">Week 5: Behavioural Patterns</a></li>
+    <li data-keywords="concurrency rlock deadlock threading"><a href="week06-thread-safe-banking.html">Week 6: Thread-Safe Banking</a></li>
+    <li data-keywords="secure coding validation authentication vulnerabilities"><a href="week07-secure-coding.html">Week 7: Secure Coding</a></li>
+    <li data-keywords="refactoring code smells god class hidden dependency"><a href="week08-refactoring.html">Week 8: Refactoring</a></li>
+    <li data-keywords="layered architecture repository observer eventbus shopease"><a href="week09-shopease.html">Week 9: Software Architecture</a></li>
+    <li data-keywords="tdd rbac test driven development visitor mocking unittest"><a href="week10-elearning.html" class="active">Week 10: TDD & Testing</a></li>
+    <li data-keywords="ioc container di composite"><a href="week11-dependency-injection.html">Week 11: Dependency Injection</a></li>
+    <li data-keywords="capstone review final"><a href="week12.html">Week 12: Capstone & Review</a></li>
+    <li data-keywords="case study highlights"><a href="../capstone.html">Capstone</a></li>
+    <li data-keywords="task 3 skill development"><a href="../reflection.html">Reflection</a></li>  
+    <li data-keywords="harvard citations bibliography"><a href="../references.html">References</a></li>
+  </ul>
+  <button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false">● Dark mode</button>
+</nav>
+
+<div class="wrapper">
+
+  <section class="section" id="tasks">
+    <div class="section-header">
+      <span class="section-num">Week 10</span>
+      <h2>Tasks Done</h2>
+    </div>    
+    <div class="card">
+      <h4 style="margin-bottom:0.5rem;">Task 1 — Design the Software Architecture</h4>
+      <ul style="padding-left: 1.25rem; margin: 0 0 1rem;">
+        <li>Chose a <strong>layered monolith</strong> over microservices or a pure monolith — justified below.</li>
+        <li>Defined the core modules: User Management, Course Management, and Enrolment Management.</li>
+        <li>Addressed security considerations up front: password hashing, input validation, and role-based access control.</li>
+      </ul>
+      <h4 style="margin-bottom:0.5rem;">Task 2 — Implement the System</h4>
+      <ul style="padding-left: 1.25rem; margin: 0 0 1rem;">
+        <li>Implemented <code>UserManagementService</code> using genuine Test-Driven Development — all 11 tests for this module were written before any implementation existed.</li>
+        <li>Used Python's <code>unittest</code> framework throughout.</li>
+      </ul>
+      <h4 style="margin-bottom:0.5rem;">Task 3 — Test and Validate the System</h4>
+      <ul style="padding-left: 1.25rem; margin: 0;">
+        <li>Wrote unit tests for every public method across all three modules — 21 tests in total.</li>
+        <li>Refactored password-handling logic into shared <code>secure_hash</code>/<code>verify_hash</code> utilities once duplication appeared between registration and authentication.</li>       
+      </ul>
+    </div>
+  </section>
+<section class="section" id="artefact3">
+    <div class="section-header">
+      <span class="section-num">10a</span>
+      <h2>Secure E-Learning Platform (TDD)</h2>
+    </div>
+<div class="card">
+      <h3>Assignment: Design, implement, and test a secure e-learning platform</h3>
+      <p style="color:var(--ink-2);">The e-learning platform is implemented using a layered monolithic architecture, where the application is organised into distinct layers with clearly defined responsibilities. This design promotes maintainability, separation of concerns, and security, while allowing individual modules to evolve independently. The architecture is also scalable because modules are loosely coupled and could be migrated to microservices in the future if required.</p>
+    </div>   
+
+    <div class="stats">
+      <div class="stat"><span class="val">3</span><span class="lbl">Core modules</span></div>
+      <div class="stat"><span class="val">21</span><span class="lbl">TDD unit tests</span></div>
+      <div class="stat"><span class="val">PBKDF2</span><span class="lbl">Password hashing</span></div>
+      <div class="stat"><span class="val">RBAC</span><span class="lbl">Role-based access</span></div>
+    </div>
+
+    <div class="card">
+      <h3>Architecture justification: Layered monolith</h3>
+      <p>A monolith is chosen over microservices for simplicity and ease of academic demonstration. The modules are loosely coupled via interfaces and repositories, making extraction to microservices straightforward if needed.</p>
+    </div>
+
+    <div class="test-grid">
+      <div class="test-group">
+        <h4>User Management (TDD)</h4>
+        <div class="test-item"><span class="dot"></span>register_creates_user</div>
+        <div class="test-item"><span class="dot"></span>stores_hashed_password</div>
+        <div class="test-item"><span class="dot"></span>duplicate_username_raises</div>
+        <div class="test-item"><span class="dot"></span>invalid_email_raises</div>
+        <div class="test-item"><span class="dot"></span>correct_password_succeeds</div>
+        <div class="test-item"><span class="dot"></span>deactivated_user_raises</div>
+      </div>
+      <div class="test-group">
+        <h4>Course &amp; Enrolment</h4>
+        <div class="test-item"><span class="dot"></span>instructor_can_create_course</div>
+        <div class="test-item"><span class="dot"></span>student_cannot_create_course</div>
+        <div class="test-item"><span class="dot"></span>publish_marks_course_published</div>
+        <div class="test-item"><span class="dot"></span>enrol_student_succeeds</div>
+        <div class="test-item"><span class="dot"></span>double_enrolment_raises</div>
+        <div class="test-item"><span class="dot"></span>complete_on_100_percent</div>
+      </div>
+    </div>
+
+<pre><span class="cm"># TDD: test written BEFORE implementation</span>
+<span class="kw">class</span> <span class="cl">TestUserManagement</span>(unittest.TestCase):
+    <span class="kw">def</span> <span class="fn">test_register_stores_hashed_password</span>(self):
+        u = self.service.register(<span class="st">"bob"</span>, <span class="st">"bob@edu.com"</span>, <span class="st">"Password1!"</span>)
+        self.assertNotEqual(u._hash, <span class="st">"Password1!"</span>)   <span class="cm"># must never store plain text</span>
+        self.assertTrue(len(u._hash) &gt; <span class="nu">32</span>)</pre>
+
+    <h3 style="margin-top:1.5rem;">Test run output</h3>
+    <p style="color:var(--ink-2); font-size:0.9rem; margin-bottom:0.75rem;">Actual output from running <code>python -m unittest elearning -v</code>, unedited:</p>
+<pre>test_authenticate_correct_password_succeeds (elearning.TestUserManagement) ... ok
+test_authenticate_deactivated_user_raises (elearning.TestUserManagement) ... ok
+test_authenticate_unknown_user_raises (elearning.TestUserManagement) ... ok
+test_authenticate_wrong_password_raises (elearning.TestUserManagement) ... ok
+test_register_as_instructor (elearning.TestUserManagement) ... ok
+test_register_creates_user (elearning.TestUserManagement) ... ok
+test_register_duplicate_username_raises (elearning.TestUserManagement) ... ok
+test_register_invalid_email_raises (elearning.TestUserManagement) ... ok
+test_register_short_password_raises (elearning.TestUserManagement) ... ok
+test_register_short_username_raises (elearning.TestUserManagement) ... ok
+test_register_stores_hashed_password (elearning.TestUserManagement) ... ok
+test_empty_title_raises (elearning.TestCourseManagement) ... ok
+test_instructor_can_create_course (elearning.TestCourseManagement) ... ok
+test_list_published_returns_only_published (elearning.TestCourseManagement) ... ok
+test_publish_marks_course_published (elearning.TestCourseManagement) ... ok
+test_student_cannot_create_course (elearning.TestCourseManagement) ... ok
+test_complete_on_100_percent (elearning.TestEnrolment) ... ok
+test_double_enrolment_raises (elearning.TestEnrolment) ... ok
+test_enrol_student_succeeds (elearning.TestEnrolment) ... ok
+test_invalid_progress_raises (elearning.TestEnrolment) ... ok
+test_progress_update (elearning.TestEnrolment) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 5.417s
+
+OK</pre>
+
+    <p style="color:var(--ink-2); font-size:0.9rem; margin:1rem 0 0.75rem;">Demo run output from <code>python elearning.py</code>, showing the platform working end-to-end after the tests pass:</p>
+<pre>=== E-Learning Platform Demo ===
+
+Created instructor: dr_smith
+Created student:    alice99
+Published course:   Advanced OOP with Python
+Alice's progress:   60.0%
+Course status:      COMPLETED</pre>
+
+    <div class="badge-row" style="margin-top:1rem;">
+      <span class="badge pass">21 / 21 passing</span>
+      <a class="badge" href="elearning.py" download title="Download elearning.py">elearning.py &#8595;</a>
+    </div>
+  </section> 
+
+  <section class="section" id="reflection">
+    <div class="section-header">
+      <span class="section-num">Reflection</span>
+      <h2>Week 10 Reflection</h2>
+    </div>
+    <div class="card">
+      <p>Developing the secure e-learning platform provided valuable experience in applying object-oriented design, security principles and Test-Driven Development (TDD) within a realistic software scenario. Rather than focusing solely on functionality, I considered how the system could be maintained, extended and secured as it evolved. This led me to adopt a layered monolithic architecture, separating the application into distinct modules for User Management, Course Management and Enrolment Management, which improved organisation and reduced coupling between components.</p>
+      <p>The most significant learning experience was applying TDD to the User Management module. Writing tests before implementation initially felt slower because the required behaviours had to be clearly defined before any code could be written. However, this approach helped me identify requirements early and ensured that security and business rules were built into the design from the outset rather than added later. For example, creating tests to verify that passwords were hashed, duplicate usernames were rejected and invalid email addresses were prevented helped establish clear acceptance criteria before implementation began.</p>
+      <p>The testing phase demonstrated the practical benefits of TDD. With a comprehensive suite of unit tests covering the platform's public methods, I was able to refactor parts of the application with confidence, knowing that existing functionality would be verified automatically. Moving password-handling functionality into shared utilities improved maintainability and reduced code duplication without affecting system behaviour. This reinforced the value of automated testing as a tool for supporting continuous improvement.</p>     
+  </section>
+
+  <section class="section" id="outcome">
+    <div class="section-header">
+      <span class="section-num">Outcome</span>
+      <h2>Unit Outcome</h2>
+    </div>
+    <div class="card">
+      <p>Overall, this assignment strengthened my understanding of how object-oriented architecture, security principles and TDD work together to produce reliable and maintainable software. Designing and testing the e-learning platform demonstrated that investing time in architecture, security and testing early in the development process leads to a more robust and scalable solution. It also increased my confidence in applying these practices to future software engineering projects</p>
+      
+    </div>
+  </section>
+
+</div>
+
+<footer>Advanced OOP &middot; E-Portfolio</footer>
+
+</body>
+</html>

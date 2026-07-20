@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advanced OOP E-Portfolio — Capstone</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/dark.css">
+<script src="assets/js/app.js" defer></script>
+<script src="assets/js/search.js" defer></script>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">Advanced OOP Portfolio</a>
+  <div class="nav-search">
+    <input id="nav-search-input" type="text" placeholder="Search weeks..." autocomplete="off">
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li data-keywords="bio profile author"><a href="about.html">About</a></li>
+    <li data-keywords="learning outcomes overview independent working"><a href="weeks/week01.html">Week 1: Introduction</a></li>
+    <li data-keywords="solid srp ocp lsp isp dip shopping"><a href="weeks/week02-solid.html">Week 2: SOLID</a></li>
+    <li data-keywords="factory method abstract factory creational ai provider"><a href="weeks/week03-factory-method.html">Week 3: CREATIONAL PATTERNS</a></li>
+    <li data-keywords="decorator pattern logging authentication rate limiting structural"><a href="weeks/week04-decorator.html">Week 4: Structural Patterns</a></li>
+    <li data-keywords="strategy pattern pricing engine behavioural"><a href="weeks/week05-strategy.html">Week 5: Behavioural Patterns</a></li>
+    <li data-keywords="concurrency rlock deadlock threading"><a href="weeks/week06-thread-safe-banking.html">Week 6: Thread-Safe Banking</a></li>
+    <li data-keywords="secure coding validation authentication vulnerabilities"><a href="weeks/week07-secure-coding.html">Week 7: Secure Coding</a></li>
+    <li data-keywords="refactoring code smells god class hidden dependency"><a href="weeks/week08-refactoring.html">Week 8: Refactoring</a></li>
+    <li data-keywords="layered architecture repository observer eventbus shopease"><a href="weeks/week09-shopease.html">Week 9: Software Architecture</a></li>
+    <li data-keywords="tdd rbac test driven development visitor mocking unittest"><a href="weeks/week10-elearning.html">Week 10: TDD & Testing</a></li>
+    <li data-keywords="ioc container di composite"><a href="weeks/week11-dependency-injection.html">Week 11: Dependency Injection</a></li>
+    <li data-keywords="capstone review final"><a href="weeks/week12.html">Week 12: Capstone & Review</a></li>
+    <li data-keywords="case study highlights"><a href="capstone.html" class="active">Capstone</a></li>
+    <li data-keywords="task 3 skill development"><a href="reflection.html">Reflection</a></li>    
+    <li data-keywords="harvard citations bibliography"><a href="references.html">E-portfolio Summary</a></li>
+  </ul>
+  <button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false">● Dark mode</button>
+</nav>
+
+<div class="wrapper">
+
+<div class="nav-search" style="margin-bottom:1.5rem;">
+    <span style="font-family: var(--mono); font-size:0.75rem; color: var(--ink-3);">On this page:</span>
+    <a href="#introduction" style="margin-left:8px;">Introduction</a> ·
+    <a href="#task1">Task 1</a> ·
+    <a href="#task2">Task 2</a> ·
+    <a href="#critical-commentary">Critical Commentary</a> ·
+    <a href="#task3">Task 3</a> ·
+    <a href="#task4">Task 4</a> ·
+    <a href="#capstone-references">References</a>
+  </div>
+
+  <section class="section" id="introduction">
+    <div class="section-header">
+      <span class="section-num">Intro</span>
+      <h2>Introduction</h2>
+    </div>
+    <div class="card">
+      <p><strong>Assignment Title:</strong> Advanced Object-Oriented Programming E-Portfolio<br>
+      <strong>Module:</strong> Advanced Object-Oriented Programming<br>
+      <strong>Course/Programme:</strong> MSc Information Technology Management</p>
+    </div>
+    <div class="card">
+      <p>This page consolidates the four tasks of the Capstone submission into a single, continuous account: a summary of the key learning outcomes achieved across the module (Task 1), a showcase of the practical artefacts and how each maps to those outcomes (Task 2), a critical commentary on the design trade-offs involved, a reflection on academic and employability skill development using two complementary reflective models (Task 3), and a Professional Development Plan setting out concrete next steps (Task 4).</p>
+      <p>I hereby certify that this is my own original work. I have used any relevant technologies according to the assignment guidelines set out on Moodle.</p>
+    </div>
+  </section>
+
+  <section class="section" id="task1">
+    <div class="section-header">
+      <span class="section-num">Task 1</span>
+      <h2>Summarise Key Learning Outcomes</h2>
+    </div>
+
+    <div class="card">
+      <p>A key learning outcome was understanding that advanced object-oriented programming is not only about creating classes, but about assigning responsibilities clearly. This was shown in the SOLID shopping artefact, where a monolithic order class was refactored into smaller, focused classes with clearer responsibilities. This improved maintainability, extensibility and testability. The use of abstraction, encapsulation, inheritance, polymorphism and dependency inversion helped me understand how structured object-oriented code can reduce coupling and support future change. Design patterns are useful in this context because they provide reusable solutions to common software design problems and create a shared language for developers (Refactoring Guru, 2026).</p>
+    </div>
+
+<pre><span class="kw">class</span> <span class="cl">_OrderBefore</span>:
+    <span class="st">"""SRP/OCP/DIP violations: one class handles items AND payment logic."""</span>
+    <span class="kw">def</span> <span class="fn">pay</span>(self, payment_type):
+        <span class="kw">if</span> payment_type == <span class="st">"credit"</span>:
+            print(<span class="st">"Processing credit card payment..."</span>)
+        <span class="kw">elif</span> payment_type == <span class="st">"paypal"</span>:
+            print(<span class="st">"Processing PayPal payment..."</span>)
+        <span class="cm"># Adding a new method requires modifying this class → OCP violation</span>
+
+<span class="kw">class</span> <span class="cl">PaymentMethod</span>(ABC):
+    <span class="st">"""Dependency Inversion: Order depends on this abstraction, not concretes."""</span>
+    <span class="de">@abstractmethod</span>
+    <span class="kw">def</span> <span class="fn">pay</span>(self, amount: <span class="cl">float</span>) -&gt; <span class="cl">bool</span>:
+        ...
+
+<span class="kw">class</span> <span class="cl">Order</span>:
+    <span class="st">"""Single Responsibility: only computes totals — no payment logic."""</span>
+    <span class="kw">def</span> <span class="fn">__init__</span>(
+        self,
+        discount: <span class="cl">DiscountStrategy</span> | <span class="kw">None</span> = <span class="kw">None</span>,
+        payment_method: <span class="cl">PaymentMethod</span> | <span class="kw">None</span> = <span class="kw">None</span>,
+    ):
+        self._payment_method: <span class="cl">PaymentMethod</span> | <span class="kw">None</span> = payment_method</pre>
+
+    <div class="card">
+      <p>Secure coding was another important area of development. In the ShopEase and e-learning artefacts, I applied password hashing, role-based access control, validation and secure authentication logic. The use of PBKDF2-HMAC-SHA256 with a random salt showed how security can be designed into the system from the beginning. OWASP recommends that passwords should not be stored in plain text and should instead be protected using strong hashing algorithms with unique salts, including PBKDF2 where appropriate (OWASP, 2026). Python also recommends using <code>compare_digest()</code> rather than standard equality checks when comparing cryptographic digests, as this reduces exposure to timing attacks (Python Software Foundation, 2026).</p>
+    </div>
+
+    <p style="font-size:0.85rem; color:var(--ink-2); font-style:italic; margin-bottom:0.5rem;">Re-entrant locking and ordered lock acquisition (banking_system.py):</p>
+<pre><span class="cm"># RLock allows the same thread to acquire the lock multiple times,
+# preventing self-deadlock in methods that call each other.</span>
+self._lock = threading.RLock()
+
+<span class="cm"># Determine a consistent lock-acquisition order to avoid deadlock</span>
+first, second = (
+    (source, destination)
+    <span class="kw">if</span> source.account_number &lt; destination.account_number
+    <span class="kw">else</span> (destination, source)
+)
+
+<span class="kw">with</span> first._lock:
+    <span class="kw">with</span> second._lock:
+        source._balance -= amount
+        destination._balance += amount</pre>
+    <p style="font-size:0.78rem; color:var(--ink-3); margin-top:-0.5rem;">Source: banking_system.py</p>
+
+    <p style="font-size:0.85rem; color:var(--ink-2); font-style:italic; margin-bottom:0.5rem;">Password hashing and constant-time comparison, designed in from the start (artifact2_shopease.py):</p>
+<pre><span class="kw">def</span> <span class="fn">hash_password</span>(password: <span class="cl">str</span>, salt: <span class="cl">bytes</span> | <span class="kw">None</span> = <span class="kw">None</span>) -&gt; <span class="cl">tuple</span>[<span class="cl">str</span>, <span class="cl">str</span>]:
+    <span class="kw">if</span> salt is <span class="kw">None</span>:
+        salt = os.urandom(16)
+    key = hashlib.pbkdf2_hmac(<span class="st">"sha256"</span>, password.encode(), salt, 260_000)
+    <span class="kw">return</span> key.hex(), salt.hex()
+
+<span class="kw">def</span> <span class="fn">verify_password</span>(password: <span class="cl">str</span>, stored_hash: <span class="cl">str</span>, stored_salt: <span class="cl">str</span>) -&gt; <span class="cl">bool</span>:
+    <span class="st">"""Constant-time comparison to prevent timing attacks."""</span>
+    salt = bytes.fromhex(stored_salt)
+    candidate, _ = hash_password(password, salt)
+    <span class="kw">return</span> hmac.compare_digest(candidate, stored_hash)</pre>
+    <p style="font-size:0.78rem; color:var(--ink-3); margin-top:-0.5rem;">Source: artifact2_shopease.py</p>
+
+    <div class="card">
+      <p>The thread-safe banking system helped me understand concurrency and robustness. It used re-entrant locks and ordered lock acquisition to reduce the risk of deadlock during account transfers. This was one of the more challenging parts of the module because concurrent programming requires thinking beyond straightforward sequential execution. I learned that reliability in concurrent systems depends not only on whether code works in a simple test, but also on whether it behaves correctly when multiple operations happen at the same time.</p>
+    </div>
+
+<pre><span class="kw">class</span> <span class="cl">BankAccount</span>:
+    <span class="kw">def</span> <span class="fn">__init__</span>(self, account_number: <span class="cl">str</span>, initial_balance: <span class="cl">float</span> = <span class="nu">0.0</span>):
+        self.account_number = account_number
+        self._balance = initial_balance
+        <span class="cm"># RLock allows the same thread to acquire the lock multiple times,
+        # preventing self-deadlock in methods that call each other.</span>
+        self._lock = threading.RLock()
+
+<span class="kw">def</span> <span class="fn">transfer</span>(source: <span class="cl">BankAccount</span>, destination: <span class="cl">BankAccount</span>, amount: <span class="cl">float</span>) -&gt; <span class="kw">None</span>:
+    <span class="cm"># Determine a consistent lock-acquisition order to avoid deadlock</span>
+    first, second = (
+        (source, destination)
+        <span class="kw">if</span> source.account_number &lt; destination.account_number
+        <span class="kw">else</span> (destination, source)
+    )
+
+    <span class="kw">with</span> first._lock:
+        <span class="kw">with</span> second._lock:
+            source._balance -= amount
+            destination._balance += amount</pre>
+
+    <div class="card">
+      <p>I also developed practical understanding of design patterns. Strategy allowed pricing algorithms to be exchanged at runtime, Decorator enabled authentication, logging and rate-limiting to be added without changing the core service, Visitor separated reporting logic from the product structure, and Abstract Factory supported provider-agnostic AI service creation. These examples helped me understand that patterns are most effective when they solve genuine maintainability, extensibility or scalability problems rather than being applied unnecessarily.</p>
+    </div>
+  </section>
+
+  <section class="section" id="task2">
+    <div class="section-header">
+      <span class="section-num">Task 2</span>
+      <h2>Showcase Artefacts</h2>
+    </div>
+
+    <div class="card">
+      <p><a href="https://github.com/jk26885/Advanced-Object-Oriented-Programming-Module" target="_blank">GitHub repository →</a></p>
+    </div>
+
+    <div class="card">
+      <p>The artefacts collectively demonstrate achievement of the module learning outcomes. The thread-safe banking system provides evidence of secure and robust code through locking, ordered resource access and concurrent tests. The SOLID shopping system demonstrates advanced object-oriented principles by applying SRP, OCP, LSP, ISP and DIP in practical code. ShopEase and the secure e-learning platform show how layered architecture, repositories, validation, role-based access control and secure registration can be used to design larger systems with clearer separation of concerns.</p>
+      <p>The dependency injection artefact demonstrates how constructor injection and inversion of control improve testability by reducing direct dependencies between classes. The Strategy pricing engine shows runtime flexibility through interchangeable pricing strategies, including an ML-informed placeholder. The Decorator service demonstrates how cross-cutting concerns can be layered around a service without modifying the original implementation. The Visitor analytics engine supports scalable reporting by separating operations from the object structure.</p>
+      <p>The AI-related artefacts were particularly important because they showed how object-oriented design can support AI adaptability. The Abstract Factory AI provider placed classifiers, embedders and summarisers behind stable interfaces, allowing cloud, local or mock providers to be switched consistently. The mocking artefact showed how AI-dependent components can be tested without relying on live APIs. This is important because AI services can introduce uncertainty, latency, bias and provider-specific behaviour. By wrapping AI functionality behind interfaces, the design becomes more testable, auditable and flexible.</p>
+      <p>The table below summarises the main artefacts and how each supports the module learning outcomes.</p>
+    </div>
+
+    <table class="pdp-table">
+      <thead><tr><th>No.</th><th>Artefact</th><th>Evidence</th><th>Learning Outcome</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><a href="weeks/week06-thread-safe-banking.html">Thread-Safe Banking System</a></td><td>RLock, ordered lock acquisition, concurrent unit tests</td><td>Secure coding, robustness, advanced OOP</td></tr>
+        <tr><td>2</td><td><a href="weeks/week02-solid.html">SOLID Shopping System</a></td><td>SRP, OCP, LSP, ISP, DIP, Strategy, Null Object</td><td>Maintainable and flexible code</td></tr>
+        <tr><td>3</td><td><a href="weeks/week09-shopease.html">ShopEase Architecture</a></td><td>Layered architecture, repositories, EventBus, secure authentication</td><td>Large-scale architecture and security</td></tr>
+        <tr><td>4</td><td><a href="weeks/week10-elearning.html">Secure E-Learning Platform</a></td><td>TDD, RBAC, validation, secure registration</td><td>Secure coding and test-driven design</td></tr>
+        <tr><td>5</td><td><a href="weeks/week11-dependency-injection.html">Dependency Injection and IoC</a></td><td>Constructor injection, IoC container, Composite notification service</td><td>Testability and dependency inversion</td></tr>        
+        <tr><td>6</td><td><a href="weeks/week10-elearning.html">Mocking and AI-Driven Testing</a></td><td>MagicMock, deterministic tests, edge-case discovery</td><td>Robust testing for AI-dependent components</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section" id="critical-commentary">
+    <div class="section-header">
+      <span class="section-num">&nbsp;</span>
+      <h2>Critical Commentary</h2>
+    </div>
+    <div class="card">
+      <p>The selected artefacts demonstrate the application of key object-oriented programming principles, software architecture concepts and testing practices developed throughout the module. The SOLID shopping system artefact shows how SOLID principles can improve maintainability and extensibility by separating responsibilities and introducing abstractions for discounts and payment methods. This reduces coupling and makes the system easier to extend without modifying existing code.</p>
+      <p>The Dependency Injection and IoC artefact reinforce the importance of loose coupling through Dependency Injection and Inversion of Control. By depending on abstractions rather than concrete implementations, the design improved flexibility, testability and maintainability. The use of mock services also demonstrated how architectural decisions can simplify automated testing and reduce reliance on external dependencies.</p>
+      <p>A major strength of the portfolio was its focus on testing. The elearning.py artefact applied Test-Driven Development (TDD), using the Red-Green-Refactor cycle to guide implementation. The banking_system.py and test_banking_system.py artefacts further highlighted the challenges of concurrent programming, including thread safety and deadlock prevention, while demonstrating the importance of comprehensive testing for validating behaviour under concurrent conditions. The testing_mocking.py artefact expanded this understanding by using mocking techniques to isolate dependencies and enable reliable, deterministic tests.</p>
+      <p>A key lesson learned was the need to balance abstraction against complexity. While SOLID principles, Dependency Injection and extensive testing improved maintainability and software quality, they also introduced additional classes and architectural overhead. This reinforced that design patterns and abstractions should be applied only when they solve genuine maintainability, scalability or testing challenges rather than simply increasing design complexity. Overall, these artefacts strengthened my understanding of how object-oriented principles, software architecture and testing practices work together to produce reliable and maintainable software systems.</p>
+    </div>
+  </section>
+
+  <section class="section" id="task3">
+    <div class="section-header">
+      <span class="section-num">Task 3</span>
+      <h2>Reflect on Skill Development</h2>
+    </div>
+
+    <div class="card">
+      <p>Academically, the module strengthened my critical thinking by requiring me to evaluate design options and justify architectural decisions. For example, selecting appropriate design patterns and applying dependency injection required consideration of maintainability, testability and future extensibility. My learning progressed through Bloom's Revised Taxonomy, moving from understanding object-oriented concepts to applying, analysing, evaluating and creating software solutions (Anderson and Krathwohl, 2001; eLearning Industry, 2026).</p>
+    </div>
+
+    <div class="card">
+      <p>The module also increased my awareness of ethical and responsible software design, particularly in AI-enabled systems. I learned that AI components should be designed to be testable, explainable and auditable, rather than treated as opaque black boxes, ensuring that limitations and potential biases are understood and managed appropriately.</p>
+    </div>
+
+    <div class="card">
+      <p>From an employability perspective, the module strengthened my time management, technical communication and resilience. Developing multiple artefacts required careful planning and prioritisation to balance implementation, testing and documentation. Writing code comments and reflective evaluations also improved my ability to communicate technical concepts clearly, explaining not only how the code works but also the reasoning behind key design decisions. These experiences helped me develop skills that are directly transferable to professional software development environments, where effective communication, organisation, and adaptability are essential.</p>
+    </div>
+
+    <h3 style="font-family:var(--serif); font-size:1.2rem; margin:2rem 0 0.75rem;">Reflective Model: Johari Window</h3>
+    <div class="card">
+      <p>The Johari Window provides a useful perspective on my development. My open area expanded as my understanding of object-oriented design, secure programming and testing became visible through my artefacts and reflections. My blind area reduced through feedback, module materials, testing results and self-evaluation. My hidden area decreased because reflective writing encouraged me to explain my reasoning and assumptions more clearly. The unknown area also became more visible, especially in relation to asynchronous programming, AI lifecycle management and advanced testing. The Johari Window supports this type of reflection by encouraging self-awareness across open, blind, hidden and unknown areas (Luft and Ingham, 1955; Creately, 2026).</p>
+    </div>
+
+    <h3 style="font-family:var(--serif); font-size:1.2rem; margin:2rem 0 0.75rem;">Reflective Model: Gibbs' Reflective Cycle</h3>
+    <div class="card">
+      <p>Gibbs' Reflective Cycle also helped me structure my learning. The module involved repeated stages of design, implementation, testing, evaluation and action planning. Initially, I found concurrency and AI-adaptable architecture challenging, but reflection showed that testing, interfaces and dependency injection were the most valuable techniques for improving reliability. Gibbs' model supports structured reflection through description, feelings, evaluation, analysis, conclusion and action planning (Gibbs, 1988; University of Edinburgh, n.d.).</p>
+    </div>
+  </section>
+
+  <section class="section" id="task4">
+    <div class="section-header">
+      <span class="section-num">Task 4</span>
+      <h2>Professional Development Plan (PDP)</h2>
+    </div>
+    <p style="color:var(--ink-2); margin:1.75rem 0 1rem;">4.1 Future Goals and Actions</p>
+
+    <div class="card">
+      <h3>Goal 1 — Deepen expertise in AI-aware software architecture</h3>
+      <p>I plan to deepen my understanding of AI-enabled software architecture by exploring model registries and extending my AI provider implementation to support asynchronous processing, retry mechanisms and circuit-breaker patterns. Developing these capabilities will help me design systems that are more resilient, scalable and reliable when interacting with external AI services and changing provider ecosystems.</p>
+    </div>
+
+    <div class="card">
+      <h3>Goal 2 — Advanced testing strategies for intelligent systems</h3>
+      <p>I intend to strengthen my testing expertise by exploring property-based testing with Hypothesis and comparing automatically generated test cases with manually designed tests. This will help me improve software reliability and increase confidence in system behaviour, particularly when working with complex inputs, edge cases and concurrent operations.</p>
+    </div>
+
+    <div class="card">
+      <h3>Goal 3 — Ethical software engineering in AI-integrated applications</h3>
+      <p>I plan to adopt Architecture Decision Records (ADRs) to document key design choices, assumptions, risks and governance considerations, particularly when developing AI-enabled systems. This will improve traceability, accountability and maintainability while supporting more ethical and transparent software engineering practices.</p>
+    </div>
+
+  <section class="section" id="capstone-references">
+    <div class="section-header">
+      <span class="section-num">Refs</span>
+      <h2>References</h2>
+    </div>
+    <div class="card">
+      <p style="font-size:0.82rem; line-height:2;">
+        Anderson, L.W. and Krathwohl, D.R. (eds.) (2001) A taxonomy for learning, teaching, and assessing: a revision of Bloom's Taxonomy of educational objectives. New York: Longman.
+        Beck, K. (2002) Test-Driven Development: By Example. Boston, MA: Addison-Wesley.
+        Coffman, E.G., Elphick, M.J. and Shoshani, A. (1971) ‘System deadlocks’, ACM Computing Surveys, 3(2), pp. 67-78.
+        Creately (2026) Johari Window Model. Available at: https://creately.com/guides/johari-window-model/ (Accessed: 20 July 2026).
+        Egges, A. (2023) Optimizing Python Code with SOLID Principles. ArjanCodes. Available at: https://arjancodes.com/blog/solid-principles-in-python-programming/ (Accessed: 20 July 2026).
+        eLearning Industry (2026) Bloom’s Taxonomy: The Ultimate Guide. Available at: https://elearningindustry.com/blooms-taxonomy-the-ultimate-guide (Accessed: 18 July 2026).
+        Ferraiolo, D.F., Sandhu, R., Gavrila, S., Kuhn, D.R. and Chandramouli, R. (2001) ‘Proposed NIST standard for role-based access control’, ACM Transactions on Information and System Security, 4(3), pp. 224-274.
+        Fowler, M. (2004) Inversion of Control Containers and the Dependency Injection Pattern. Available at: https://martinfowler.com/articles/injection.html (Accessed: 217July 2026).
+        Fowler, M. (2014) Circuit Breaker. Available at: https://martinfowler.com/bliki/CircuitBreaker.html (Accessed: 20 July 2026).
+        Gamma, E., Helm, R., Johnson, R. and Vlissides, J. (1994) Design Patterns: Elements of Reusable Object-Oriented Software. Reading, MA: Addison-Wesley.
+        Gibbs, G. (1988) Learning by Doing: A Guide to Teaching and Learning Methods. Oxford: Oxford Polytechnic.
+        Henderson, J.P. (2026) Architecture Decision Record (ADR). Available at: https://github.com/architecture-decision-record/architecture-decision-record (Accessed: 19 July 2026).
+        Hypothesis Works (2026) Hypothesis Documentation. Available at: https://hypothesis.readthedocs.io/ (Accessed: 212July 2026).
+        Luft, J. and Ingham, H. (1955) The Johari Window, a graphic model of interpersonal awareness. Los Angeles: University of California Western Training Laboratory.
+        Martin, R.C. (2003) Agile Software Development: Principles, Patterns, and Practices. Upper Saddle River, NJ: Prentice Hall.
+        MLflow (2026) MLflow Model Registry. Available at: https://mlflow.org/docs/latest/ml/model-registry/ (Accessed: 12 July 2026).
+        OWASP Foundation (2026) Password Storage Cheat Sheet. Available at: https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html (Accessed: 15 July 2026).
+        Python Software Foundation (2026) hmac — Keyed-hashing for message authentication. Available at: https://docs.python.org/3/library/hmac.html (Accessed: 14 July 2026).
+        Python Software Foundation (2026) threading — Thread-based parallelism. Available at: https://docs.python.org/3/library/threading.html (Accessed: 15 July 2026).
+        University of Edinburgh (n.d.) Reflecting using Gibbs Reflective Cycle. Available at: https://www.ed.ac.uk/reflection/reflectors-toolkit/reflecting-on-experience/gibbs-reflective-cycle (Accessed: 15 July 2026).
+
+
+    </div>
+  </section>
+
+</div>
+
+<footer>Advanced OOP &middot; E-Portfolio</footer>
+
+</body>
+</html>

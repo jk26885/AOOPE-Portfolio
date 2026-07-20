@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advanced OOP E-Portfolio — Reflection</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/dark.css">
+<script src="assets/js/app.js" defer></script>
+<script src="assets/js/search.js" defer></script>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">Advanced OOP Portfolio</a>
+  <div class="nav-search">
+    <input id="nav-search-input" type="text" placeholder="Search weeks..." autocomplete="off">
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li data-keywords="bio profile author"><a href="about.html">About</a></li>
+    <li data-keywords="learning outcomes overview independent working"><a href="weeks/week01.html">Week 1: Introduction</a></li>
+    <li data-keywords="solid srp ocp lsp isp dip shopping"><a href="weeks/week02-solid.html">Week 2: SOLID</a></li>
+    <li data-keywords="factory method abstract factory creational ai provider"><a href="weeks/week03-factory-method.html">Week 3: CREATIONAL PATTERNS</a></li>
+    <li data-keywords="decorator pattern logging authentication rate limiting structural"><a href="weeks/week04-decorator.html">Week 4: Structural Patterns</a></li>
+    <li data-keywords="strategy pattern pricing engine behavioural"><a href="weeks/week05-strategy.html">Week 5: Behavioural Patterns</a></li>
+    <li data-keywords="concurrency rlock deadlock threading"><a href="weeks/week06-thread-safe-banking.html">Week 6: Thread-Safe Banking</a></li>
+    <li data-keywords="secure coding validation authentication vulnerabilities"><a href="weeks/week07-secure-coding.html">Week 7: Secure Coding</a></li>
+    <li data-keywords="refactoring code smells god class hidden dependency"><a href="weeks/week08-refactoring.html">Week 8: Refactoring</a></li>
+    <li data-keywords="layered architecture repository observer eventbus shopease"><a href="weeks/week09-shopease.html">Week 9: Software Architecture</a></li>
+    <li data-keywords="tdd rbac test driven development visitor mocking unittest"><a href="weeks/week10-elearning.html">Week 10: TDD & Testing</a></li>
+    <li data-keywords="ioc container di composite"><a href="weeks/week11-dependency-injection.html">Week 11: Dependency Injection</a></li>
+    <li data-keywords="capstone review final"><a href="weeks/week12.html">Week 12: Capstone & Review</a></li>
+    <li data-keywords="case study highlights"><a href="capstone.html">Capstone</a></li>
+    <li data-keywords="task 3 skill development"><a href="reflection.html" class="active">Reflection</a></li>   
+    <li data-keywords="harvard citations bibliography"><a href="references.html">References</a></li>
+  </ul>
+  <button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false">● Dark mode</button>
+</nav>
+
+<div class="wrapper">
+
+<section class="section" id="reflection">
+    <div class="section-header">
+      <span class="section-num">Task 3</span>
+      <h2>Reflection on Skill Development</h2>
+    </div>
+
+    <p style="color:var(--ink-2); margin-bottom:1.25rem;">3.1 Academic Skills</p>
+
+    <div class="card">
+      <h3>Critical Thinking and Analysis</h3>
+      <p>The most demanding analytical challenge was deadlock prevention in Part 1. Deadlock doesn't surface as a runtime error — it manifests as a program that silently hangs, with no exception or stack trace to guide debugging. Reasoning from first principles, deadlock requires four simultaneous conditions (Coffman et al., 1971), and eliminating any one is sufficient; I chose to break the circular-wait condition via a global lock-ordering protocol. Similarly, choosing Visitor for the analytics artefact required weighing two competing OCP directions — the element hierarchy versus the operation set — and documenting that trade-off explicitly in code comments, rather than treating patterns as universally beneficial.</p>
+    </div>
+
+    <div class="card">
+      <h3>Ethical Considerations in AI-Driven Object-Oriented Design</h3>
+      <p>Artefact 8 raises a real ethical dimension: wrapping an AI classifier behind an abstraction hides not only the provider but also the model's behaviour — its training data, known biases, failure modes. A poorly designed class hierarchy can propagate bias invisibly; if a <code>ContentModerationService</code> silently uses a model more likely to flag certain languages or dialects as unsafe, the OO design has made that bias harder to discover, not easier. Transparency and auditability are therefore design concerns, not just operational ones — the audit log in <code>PricingEngine</code> and the structured output of the Visitor pattern both support explainability, and every AI call in the portfolio records enough context for post-hoc review, deliberately avoiding the "black-box coupling" anti-pattern. This extends to testability: a class whose AI dependency can't be mocked can't be verified reliably in production — not merely inconvenient, but an ethical failure in safety-critical applications.</p>
+    </div>
+
+    <div class="card">
+      <h3>Problem-Solving</h3>
+      <p>A recurring approach was using abstraction to defer decisions. Designing the AI provider-switching system, I initially considered a concrete OpenAI-only implementation; recognising that vendor lock-in is a real risk in AI projects — providers change APIs, pricing, availability — I refactored to introduce the <code>AIServiceFactory</code> abstraction <em>before</em> writing any concrete code. Applied consistently, this "abstract first" heuristic produced a more extensible final design.</p>
+    </div>
+
+    <div class="card">
+      <h3>Research and Self-Study</h3>
+      <p>The module required engagement with primary sources beyond lecture materials: NIST SP 800-63B (Grassi et al., 2017) informed password-hashing parameters; Coffman et al. (1971) provided the formal deadlock conditions used to justify lock ordering; GoF pattern descriptions (Gamma et al., 1994) were consulted to ensure implementations matched canonical intent, particularly the Visitor's double-dispatch mechanism.</p>
+    </div>
+
+    <p style="color:var(--ink-2); margin:1.75rem 0 1.25rem;">3.2 Employability Skills</p>
+
+    <div class="test-grid">
+      <div class="test-group">
+        <h4>Time Management</h4>
+        <p style="font-size:0.8rem; color:var(--ink-2); font-family:var(--sans);">6 artefacts across two parts, each needing implementation, testing, and documentation. I adopted a fixed priority order — implementation first (ensures executability), tests second (validates correctness), documentation last (accurately reflects what was built) — preventing the common failure of documenting intended behaviour that was never implemented.</p>
+      </div>
+      <div class="test-group">
+        <h4>Communication and Literacy</h4>
+        <p style="font-size:0.8rem; color:var(--ink-2); font-family:var(--sans);">Every artefact includes structured docstrings explaining the chosen pattern, its benefits, and its acknowledged trade-offs — reflecting that code is read far more often than written, and that a future maintainer who understands <em>why</em> RLock beats Lock is more likely to preserve that property when extending the system.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Resilience and Interpersonal Skills</h3>
+      <p>The concurrent test suite for the banking system initially produced intermittent failures traced to a subtle race condition in the <em>test setup code itself</em>, not the production code. Working through this required resilience to question my own assumption about which layer contained the bug, and the discipline to write a minimal reproducible case before attempting a fix.</p>
+    </div>
+  </section>
+
+</div>
+
+<footer>Advanced OOP &middot; E-Portfolio</footer>
+
+</body>
+</html>

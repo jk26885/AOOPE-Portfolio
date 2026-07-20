@@ -1,0 +1,60 @@
+/* ══════════════════════════════════════════════════════════
+   dark.css — Dark mode overrides for the Advanced OOP E-Portfolio.
+
+   Loaded on every page alongside styles.css. Does nothing by default;
+   activates only when <html data-theme="dark"> is set (toggled by
+   assets/js/app.js and persisted in localStorage).
+   ══════════════════════════════════════════════════════════ */
+
+html[data-theme="dark"] {
+  --ink:     #ece8e1;
+  --ink-2:   #b5afa4;
+  --ink-3:   #7d766a;
+  --paper:   #17140f;
+  --paper-2: #211d16;
+  --paper-3: #332c20;
+  --accent:  #6ba1e8;
+  --accent-2:#8fbaf2;
+  --green:   #6fcf9e;
+  --green-bg:#123024;
+  --amber:   #e8c05a;
+  --amber-bg:#2e2409;
+  --red:     #e88a8a;
+  --red-bg:  #301414;
+}
+
+html[data-theme="dark"] body { background: var(--paper); color: var(--ink); }
+
+/* Cards, tables, and code blocks use hard-coded #fff / near-black in a few
+   places in styles.css — override those specifically here rather than
+   touching styles.css, so the light theme file stays untouched. */
+html[data-theme="dark"] .card,
+html[data-theme="dark"] .stat,
+html[data-theme="dark"] .principle,
+html[data-theme="dark"] table.pdp-table,
+html[data-theme="dark"] .nav-search input {
+  background: var(--paper-2);
+  border-color: var(--paper-3);
+}
+
+html[data-theme="dark"] pre {
+  background: #0c0a07;
+  border: 1px solid var(--paper-3);
+}
+
+html[data-theme="dark"] .theme-toggle {
+  background: var(--paper-2);
+  color: var(--ink-2);
+  border-color: var(--paper-3);
+}
+
+html[data-theme="dark"] .badge {
+  background: var(--paper-2);
+  border-color: var(--paper-3);
+  color: var(--ink-2);
+}
+
+html[data-theme="dark"] img,
+html[data-theme="dark"] svg {
+  filter: brightness(0.92);
+}

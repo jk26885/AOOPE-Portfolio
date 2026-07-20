@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advanced OOP E-Portfolio — About</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/dark.css">
+<script src="assets/js/app.js" defer></script>
+<script src="assets/js/search.js" defer></script>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">Advanced OOP Portfolio</a>
+  <div class="nav-search">
+    <input id="nav-search-input" type="text" placeholder="Search weeks..." autocomplete="off">
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li data-keywords="bio profile author"><a href="about.html" class="active">About</a></li>
+    <li data-keywords="learning outcomes overview independent working"><a href="weeks/week01.html">Week 1: Introduction</a></li>
+    <li data-keywords="solid srp ocp lsp isp dip shopping"><a href="weeks/week02-solid.html">Week 2: SOLID</a></li>
+    <li data-keywords="factory method abstract factory creational ai provider"><a href="weeks/week03-factory-method.html">Week 3: CREATIONAL PATTERNS</a></li>
+    <li data-keywords="decorator pattern logging authentication rate limiting structural"><a href="weeks/week04-decorator.html">Week 4: Structural Patterns</a></li>
+    <li data-keywords="strategy pattern pricing engine behavioural"><a href="weeks/week05-strategy.html">Week 5: Behavioural Patterns</a></li>
+    <li data-keywords="concurrency rlock deadlock threading"><a href="weeks/week06-thread-safe-banking.html">Week 6: Thread-Safe Banking</a></li>
+    <li data-keywords="secure coding validation authentication vulnerabilities"><a href="weeks/week07-secure-coding.html">Week 7: Secure Coding</a></li>
+    <li data-keywords="refactoring code smells god class hidden dependency"><a href="weeks/week08-refactoring.html">Week 8: Refactoring</a></li>
+    <li data-keywords="layered architecture repository observer eventbus shopease"><a href="weeks/week09-shopease.html">Week 9: Software Architecture</a></li>
+    <li data-keywords="tdd rbac test driven development visitor mocking unittest"><a href="weeks/week10-elearning.html">Week 10: TDD & Testing</a></li>
+    <li data-keywords="ioc container di composite"><a href="weeks/week11-dependency-injection.html">Week 11: Dependency Injection</a></li>
+    <li data-keywords="capstone review final"><a href="weeks/week12.html">Week 12: Capstone & Review</a></li>
+    <li data-keywords="case study highlights"><a href="capstone.html">Capstone</a></li>
+    <li data-keywords="task 3 skill development"><a href="reflection.html">Reflection</a></li>   
+    <li data-keywords="harvard citations bibliography"><a href="references.html">References</a></li>
+  </ul>
+  <button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false">● Dark mode</button>
+</nav>
+
+<div class="wrapper">
+
+<section class="section">
+    <div class="section-header">
+      <span class="section-num">About</span>
+      <h2>About This Portfolio</h2>
+    </div>
+    <div class="card">
+      <p>I'm a postgraduate student on the Advanced Object-Oriented Programming module, and this site is my e-portfolio for the course — a week-by-week record of the artefacts, design decisions, and reflections produced across the module.</p>
+    </div>
+    <div class="card">
+      <h3>How this site is organised</h3>
+      <p>Each entry under <strong>Weeks</strong> in the sidebar corresponds to one unit of the module, it includes tasks, a reflection and outcomes. Where I was able to complete formative assignments, briefs are provided and links to the github repositories for the corresponding code.. <strong>Capstone</strong> draws these together into a single case study; <strong>Reflection</strong> and <strong>PDP</strong> cover the module's academic and professional-development requirements; <strong>References</strong> lists every source cited throughout.</p>
+    </div>
+    <div class="card">
+      <h3>Independent working</h3>
+      <p>This e-Portfolio, and every artefact within it, was designed, implemented, tested, and documented independently as an individual project. All architectural decisions — including pattern selection, security implementation, and test strategy — were made and justified by me, and all code was written by me without collaborative authorship. Where published sources (see <a href="references.html">References</a>) informed a decision, this is acknowledged explicitly in the relevant commentary rather than presented as independent insight.</p>
+    </div>
+  </section>
+
+</div>
+
+<footer>Advanced OOP &middot; E-Portfolio</footer>
+
+</body>
+</html>

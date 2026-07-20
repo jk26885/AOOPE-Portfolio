@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advanced OOP E-Portfolio — Week 9: Software Architecture</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/styles.css">
+<link rel="stylesheet" href="../assets/css/dark.css">
+<script src="../assets/js/app.js" defer></script>
+<script src="../assets/js/search.js" defer></script>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="../index.html">Advanced OOP Portfolio</a>
+  <div class="nav-search">
+    <input id="nav-search-input" type="text" placeholder="Search weeks..." autocomplete="off">
+  </div>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li data-keywords="bio profile author"><a href="../about.html">About</a></li>
+    <li data-keywords="learning outcomes overview independent working"><a href="week01.html">Week 1: Introduction</a></li>
+    <li data-keywords="solid srp ocp lsp isp dip shopping"><a href="week02-solid.html">Week 2: SOLID</a></li>
+    <li data-keywords="factory method abstract factory creational ai provider"><a href="week03-factory-method.html">Week 3: CREATIONAL PATTERNS</a></li>
+    <li data-keywords="decorator pattern logging authentication rate limiting structural"><a href="week04-decorator.html">Week 4: Structural Patterns</a></li>
+    <li data-keywords="strategy pattern pricing engine behavioural"><a href="week05-strategy.html">Week 5: Behavioural Patterns</a></li>
+    <li data-keywords="concurrency rlock deadlock threading"><a href="week06-thread-safe-banking.html">Week 6: Thread-Safe Banking</a></li>
+    <li data-keywords="secure coding validation authentication vulnerabilities"><a href="week07-secure-coding.html">Week 7: Secure Coding</a></li>
+    <li data-keywords="refactoring code smells god class hidden dependency"><a href="week08-refactoring.html">Week 8: Refactoring</a></li>
+    <li data-keywords="layered architecture repository observer eventbus shopease"><a href="week09-shopease.html" class="active">Week 9: Software Architecture</a></li>
+    <li data-keywords="tdd rbac test driven development visitor mocking unittest"><a href="week10-elearning.html">Week 10: TDD & Testing</a></li>
+    <li data-keywords="ioc container di composite"><a href="week11-dependency-injection.html">Week 11: Dependency Injection</a></li>
+    <li data-keywords="capstone review final"><a href="week12.html">Week 12: Capstone & Review</a></li>
+    <li data-keywords="case study highlights"><a href="../capstone.html">Capstone</a></li>
+    <li data-keywords="task 3 skill development"><a href="../reflection.html">Reflection</a></li>    
+    <li data-keywords="harvard citations bibliography"><a href="../references.html">References</a></li>
+  </ul>
+  <button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false">● Dark mode</button>
+</nav>
+
+<div class="wrapper">
+
+  <section class="section" id="tasks">
+    <div class="section-header">
+      <span class="section-num">Week 9</span>
+      <h2>Tasks Done</h2>
+    </div>
+    <div class="card">
+      <ul style="padding-left: 1.25rem; margin: 0;">
+        <li>Continued work on the ShopEase Capstone Project, an e-commerce system based on a layered architecture.</li>
+        <li>Explored how object-oriented design principles contribute to architectures that are scalable, maintainable, and secure.</li>
+        <li>Examined the role of object-oriented design principles in creating scalable, maintainable and secure systems.</li>
+        <li>Evaluated how architectural decisions affect scalability, security, maintainability and extensibility.</li>
+      </ul>
+    </div>
+  </section>
+
+<section class="section" id="artefact2">
+    <div class="section-header">
+      <span class="section-num">Week 9</span>
+      <h2>ShopEase Architecture</h2>
+    </div>
+
+    <p style="color:var(--ink-2); margin-bottom:1.25rem;">
+      The ShopEase Architecture is designed as a scalable, modular and secure e-commerce system using a layered object-oriented architecture. The code separates the application into three main layers: the Presentation Layer, the Business Logic Layer and the Data Access Layer. This structure supports maintainability because each layer has a distinct responsibility, and changes in one part of the system can be made with minimal impact on the others.
+    </p>
+
+    <div class="arch">
+      <div class="arch-layer">
+        <span class="layer-badge l-p">Presentation</span>
+        <p>Represented by the ShopEaseCLI class. this class simulates the user interface of the system, such as a web interface or mobile application. Its role is to handle user interaction and pass user requests to the relevant business services. it does not contain the main business rules itself, which helps maintain separation concerns.</p>
+      </div>
+      <div class="arch-layer">
+        <span class="layer-badge l-b">Business Logic</span>
+        <p>The AuthService manages user registration and login. The CatalogueService manages product listings and stock. The OrderService controls the order lifecycle, including order creation, payment processing and status updates. The PaymentGateway abstraction supports flexible payment processing, while the EventBus supports notification-style behaviour using the Observer Pattern.</p>
+      </div>
+      <div class="arch-layer">
+        <span class="layer-badge l-d">Data Access</span>
+        <p>The Data Access Layer is represented by repository classes: UserRepository, ProductRepository, OrderRepository. These repositories manage storage and retrieval of users, products and orders. In this implementation, the repositories use in-memory storage, but in the design allows them to be replaced later with database-backed repositories. This supports scalability and maintainability because the business services do not need to know the details of how the data is stored.</p>
+      </div>
+    </div>    
+
+    <div class="card" style="margin-top:1rem;">
+      <h3>Security Features</h3>
+      <p>Security is addressed mainly through the authentication design. The code includes password hashing using <strong>PBKDF2-HMAC-SHA256</strong> with a salt. it also uses <code>hmac.compare_digest</code> for password verification, which supports constant-time comparison and helps reduce exposure to timing attacks.</p>
+    </div>
+
+    <div class="card">
+      <h3>Design Patterns Implemented</h3>
+      <p>Observer Pattern: demonstrated by the <code>EventBus</code> by allowing parts of the system to subscibe and respond to events. This could support notifications when an order is placed or shipped.</p>
+      <p>Strategy Pattern: demonstrated by the <code>PaymentGateway</code> and<code>MockPaymentGateway</code> implementations. this allows different payment methods to be introduced without changing the <code>OrderService</code>. For example future implementations could include card payments, PayPal or other payment providers.</p>
+      <p>Repository Pattern: repository classes separate data access from business logic. This improves maintainability because storage can be changed without rewriting the services.</p>
+      <p>Dependency Injection: demonstrated by the <code>build_shopease()</code> function which wires together repositories, services, the eventbus and payment gateway. This shows Dependency Injection, because dependencies are passed into components rather than being created internally. This reduces coupling and makes the system easier to test.</p>
+    </div>
+
+    <div class="badge-row" style="margin-top:1rem;">
+      <a class="badge" href="https://github.com/jk26885/Advanced-Object-Oriented-Programming-Module/blob/main/03_Layered_Architecture/artifact2_shopease/shopease.py" target="_blank" title="View shopease.py on GitHub">shopease.py &#8595;</a>
+      <span class="badge">Observer Pattern</span>
+      <span class="badge">Repository Pattern</span>
+      <span class="badge">Dependency Injection</span>
+    </div>
+  </section>
+
+  <section class="section" id="reflection">
+    <div class="section-header">
+      <span class="section-num">Reflection</span>
+      <h2>Week 9 Reflection</h2>
+    </div>
+    <div class="card">
+      <p>Unit 9 brought together many of the concepts covered throughout the module and demonstrated how object-oriented principles, design patterns, and secure coding practices contribute to effective software architecture. Through the lecturecast and reading materials, I developed a greater understanding of architectural styles such as layered architectures, monolithic applications, and microservices, along with the advantages and trade-offs associated with each approach.</p>
+      <p>The ShopEase case study was particularly valuable because it provided a practical example of how a large-scale system can be designed to meet requirements for scalability, maintainability, security, and extensibility. Analysing the layered architecture helped me appreciate the importance of separating responsibilities between the presentation, business logic, and data access layers. I recognised how this separation improves maintainability by reducing coupling between components and allowing individual parts of the system to evolve independently.</p>
+      <p>The unit also reinforced the role of object-oriented design in building scalable and secure systems. Concepts such as encapsulation, abstraction, dependency injection, and modular design were shown to be architectural as well as programming concerns.</p>      
+    </div>
+  </section>
+
+  <section class="section" id="outcome">
+    <div class="section-header">
+      <span class="section-num">Outcome</span>
+      <h2>Unit Outcome</h2>
+    </div>
+    <div class="card">
+      <p>The unit highlighted that there is rarely a single perfect architecture; instead, architects must balance scalability, maintainability, performance, and security requirements based on business needs. This understanding will be valuable when evaluating technology solutions and participating in future design decisions.</p>
+      <p>Developing ShopEase allowed me to apply architectural principles in a practical context, demonstrating how clear separation of responsibilities improves maintainability, scalability, security and testability.</p>      
+    </div>
+  </section>
+
+</div>
+
+
+<footer>Advanced OOP &middot; E-Portfolio &middot; Python 3.12 &middot; All tests passing</footer>
+
+</body>
+</html>
