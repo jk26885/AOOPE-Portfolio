@@ -76,7 +76,7 @@ method appears.
 ## Run
 
 ```bash
-python artefact_solid_shopping.py
+python solid_shopping.py
 ```
 
 Runs three scenarios: a card payment with a percentage discount, a PayPal
